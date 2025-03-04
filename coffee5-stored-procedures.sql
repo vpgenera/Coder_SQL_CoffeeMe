@@ -40,7 +40,7 @@ DELIMITER ;
 
 CALL registro_compra_insumo(2, 10, 'Compra de leche a proveedor Bidfood');
 
--- 3.SP para registrar venta de productos y modificar el stock disponible
+-- 3.SP para registrar venta de productos y actualizar el total del pedido
 
 DELIMITER //
 CREATE PROCEDURE registro_pedido(
