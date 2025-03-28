@@ -45,6 +45,33 @@ INSERT INTO insumo(nombre_insumo, descripcion_insumo, stock_actual, unidad, stoc
 ('Matcha en polvo', 'Té matcha polvo.', 10, 'kg', 2),
 ('Café en grano descafeinado', 'Granos de café arábica libres de cafeína.', 30, 'kg', 5);
 
+
+ALTER TABLE insumo 
+ADD COLUMN costo_unitario DECIMAL(10,2) NOT NULL DEFAULT 0;
+
+SAVEPOINT agregando_costo_insumo;
+
+UPDATE insumo SET costo_unitario = 15.00 WHERE id_insumo = 1; --  'Café en grano'
+UPDATE insumo SET costo_unitario = 1.20 WHERE id_insumo = 2; --  'Leche';
+UPDATE insumo SET costo_unitario = 10.00 WHERE id_insumo = 3; --  'Chocolate en polvo';
+UPDATE insumo SET costo_unitario = 12.00 WHERE id_insumo = 4; --  'Chocolate bitter';
+UPDATE insumo SET costo_unitario = 11.50 WHERE id_insumo = 5; --  'Chocolate semi amargo';
+UPDATE insumo SET costo_unitario = 2.50 WHERE id_insumo = 6; --  'Azúcar flor';
+UPDATE insumo SET costo_unitario = 8.00 WHERE id_insumo = 7; --  'Canela';
+UPDATE insumo SET costo_unitario = 9.00 WHERE id_insumo = 8; --  'Té Verde';
+UPDATE insumo SET costo_unitario = 7.50 WHERE id_insumo = 9; --  'Té Negro';
+UPDATE insumo SET costo_unitario = 6.00 WHERE id_insumo = 10; --  'Jarabe de Vainilla';
+UPDATE insumo SET costo_unitario = 6.50 WHERE id_insumo = 11; -- 'Jarabe de Caramelo';
+UPDATE insumo SET costo_unitario = 8.00 WHERE id_insumo = 12; --  'Helado de Vainilla';
+UPDATE insumo SET costo_unitario = 0.50 WHERE id_insumo = 13; --  'Hielo';
+UPDATE insumo SET costo_unitario = 3.50 WHERE id_insumo = 14; --  'Leche de Almendras';
+UPDATE insumo SET costo_unitario = 3.20 WHERE id_insumo = 15; --  'Leche de Avena';
+UPDATE insumo SET costo_unitario = 12.00 WHERE id_insumo = 16; --  'Chai en polvo';
+UPDATE insumo SET costo_unitario = 0.05 WHERE id_insumo = 17; --  'Agua caliente';
+UPDATE insumo SET costo_unitario = 25.00 WHERE id_insumo = 18; -- 'Matcha en polvo';
+UPDATE insumo SET costo_unitario = 16.00 WHERE id_insumo = 19; --  'Café en grano descafeinado';
+
+
 SAVEPOINT insertando_receta;
 INSERT INTO receta(id_producto, id_insumo, cantidad, unidad) VALUES
 -- Espresso
